@@ -1,15 +1,24 @@
 class BooksController < ApplicationController
   def index
     @book = Book.new
-    @books = Book.all
+    @books = Book.all #Book.order("id DESC")とするとidの大きい順から取得する
   end
 
 
 
   def create
-    book = Book.new(book_params)
-    book.save
-    redirect_to '/books'
+    @book = Book.new(book_params)
+
+
+    if @book.save
+      redirect_to show_book_path(@book.id), notice: 'Book was successfully created.'
+    else
+      @books = Book.all
+      render :index
+
+    end
+
+
   end
 
   def show
