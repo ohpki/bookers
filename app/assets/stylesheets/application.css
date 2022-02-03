@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+#notice {
+    color: green;
+}
+
+label {
+    display: block;
+}
+
+div.field, div.actions {
+    margin-bottom: 10px;
+}
