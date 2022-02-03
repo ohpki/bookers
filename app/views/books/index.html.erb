@@ -2,8 +2,9 @@
 
 <% @books.each do |book| %>
 
-<!--<span><link_to "show", book_path(show.id) %></span>-->
+<p><%= @book.title %></p>
 <span><%= link_to "show", "/books/#{book.id}" %></span>
+
 
 
 <span><%= book.body %></span>
@@ -12,9 +13,9 @@
 <% end %>
 
 
-    
-    
-    
+
+
+
 <%= form_with model: @book, url: '/books', method: :post, local:true do |f| %>
 
 <label class="book_title">Title</label>
